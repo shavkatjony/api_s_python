@@ -18,3 +18,8 @@ class Drink(db.Model):
 @app.route('/')
 def index():
     return "Hello, brajer"
+# (Keep previous code above)
+
+@app.route('/drinks')
+def get_drinks():
+    return "Coke, Pepsi, Fanta, Sprite"
