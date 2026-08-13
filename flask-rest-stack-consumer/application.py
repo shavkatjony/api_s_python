@@ -17,9 +17,15 @@ class Drink(db.Model):
 
 @app.route('/')
 def index():
-    return "Hello, brajer"
-# (Keep previous code above)
+    return "Hello, World!"
+
 
 @app.route('/drinks')
 def get_drinks():
-    return "Coke, Pepsi, Fanta, Sprite"
+    drinks = Drink.query.all()
+    output = []
+    for drink in drinks:
+        drink_data = {'name': drink.name, 'description': drink.description}
+        output.append(drink_data)
+
+    return {"drinks": output}
