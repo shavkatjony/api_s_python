@@ -5,3 +5,12 @@ from requests.exceptions import HTTPError, Timeout, ConnectionError
 # 1. Define configuration constants
 API_URL = "https://httpbin.org/post"
 API_TOKEN = os.getenv("MY_API_TOKEN", "mock_secret_token_123")
+
+with requests.Session() as session:
+    
+    # Define reusable headers for all requests in this session
+    session.headers.update({
+        "Authorization": f"Bearer {API_TOKEN}",
+        "Accept": "application/json",
+        "User-Agent": "AdvancedPythonClient/1.0"
+    })
