@@ -40,3 +40,10 @@ with requests.Session() as session:
                 timeout=(3.05, 10),   # (Connect timeout, Read timeout) in seconds
                 allow_redirects=False # Prevent accidental security token exposure via redirect
             )
+
+
+            # Parse response content
+            response_data = response.json()
+            print("Request successful!")
+            print(f"Status Code: {response.status_code}")
+            print(f"Server Response ID: {response_data.get('id', 'N/A')}")
