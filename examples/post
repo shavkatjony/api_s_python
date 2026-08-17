@@ -29,3 +29,14 @@ with requests.Session() as session:
         # Construct the execution block safely handling errors
         with open("summary.csv", "rb") as csv_file:
             files = {"attachment": ("summary.csv", csv_file, "text/csv")}
+
+ print(f"Sending POST request to {API_URL}...")
+            
+            # Execute POST request with explicit data, files, and timeout
+            response = session.post(
+                url=API_URL,
+                json=payload,         # Automatically sets Content-Type to application/json
+                files=files,          # Bundles file data seamlessly
+                timeout=(3.05, 10),   # (Connect timeout, Read timeout) in seconds
+                allow_redirects=False # Prevent accidental security token exposure via redirect
+            )
