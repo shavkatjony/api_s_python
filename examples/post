@@ -54,3 +54,12 @@ with requests.Session() as session:
     except Timeout:
         print("Error: The request timed out before communicating with the server.")
     except ConnectionError:
+    except Timeout:
+        print("Error: Failed to connect to the server. Check your network or DNS.")
+    except HTTPError as http_err:
+        print(f"HTTP Error occurred: {http_err}")
+        if 'response' in locals() and response.text:
+            print(f"Server error details: {response.text}")
+    except Exception as err:
+        print(f"An unexpected error occurred: {err}")
+
