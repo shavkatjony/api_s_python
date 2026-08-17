@@ -47,3 +47,10 @@ with requests.Session() as session:
             print("Request successful!")
             print(f"Status Code: {response.status_code}")
             print(f"Server Response ID: {response_data.get('id', 'N/A')}")
+
+# 4. Implement robust exceptions handling
+    except FileNotFoundError:
+        print("Error: The local file to upload could not be found.")
+    except Timeout:
+        print("Error: The request timed out before communicating with the server.")
+    except ConnectionError:
