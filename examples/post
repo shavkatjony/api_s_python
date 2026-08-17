@@ -24,3 +24,8 @@ with requests.Session() as session:
             "priority": "high"
         }
     }
+
+  try:
+        # Construct the execution block safely handling errors
+        with open("summary.csv", "rb") as csv_file:
+            files = {"attachment": ("summary.csv", csv_file, "text/csv")}
