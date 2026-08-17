@@ -14,3 +14,13 @@ with requests.Session() as session:
         "Accept": "application/json",
         "User-Agent": "AdvancedPythonClient/1.0"
     })
+
+# Prepare complex structured data payload
+    payload = {
+        "userId": 42,
+        "action": "create_report",
+        "meta": {
+            "tags": ["production", "financials"],
+            "priority": "high"
+        }
+    }
