@@ -3,19 +3,19 @@ from datetime import datetime
 MY_LAT = 35.167397
 MY_LONG = 129.068878
 
-parameters = {
-    "lat":MY_LAT,
-    "lng":MY_LONG,
-    "formatted": 0,
-}
+def is_iss_overhead():
+    parameters = {
+        "lat": MY_LAT,
+        "lng": MY_LONG,
+        "formatted": 0,
+    }
 
-response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
-response.raise_for_status()
-data = response.json()
+    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
+    response.raise_for_status()
+    data = response.json()
 
-
-iss_latitude = float(data["iss_position"]["latitude"])
-iss_longitude = float(data["iss_position"]["longitude"])
+    iss_latitude = float(data["iss_position"]["latitude"])
+    iss_longitude = float(data["iss_position"]["longitude"])
 
 if 
 
